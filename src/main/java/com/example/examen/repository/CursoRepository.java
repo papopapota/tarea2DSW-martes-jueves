@@ -19,4 +19,9 @@ public interface CursoRepository extends MongoRepository<Curso, Integer> {
     @Query("{nombre: { $regex:  '^?0'  , '$options' : 'i'} }")
     public abstract List<Curso> listaCursoPorNombre(String nombre);
 
+
+    @Query("{ 'idCurso' : ?0 , nombre: ?1 }")
+    public abstract List<Curso> listaCursoPorIDCursoYNombre(int idCurso, String nombre);
+
+
 }

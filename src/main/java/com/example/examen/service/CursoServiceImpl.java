@@ -44,4 +44,9 @@ public class CursoServiceImpl implements CursoService{
 	public Curso buscaCursoPorPK(int idCurso) {
 		return repository.findById(idCurso).orElse(null);
 	}
+
+	@Override
+	public List<Curso> listaCursoPorIDCursoYNombre(int idCurso, String nombre) {
+		return repository.listaCursoPorIDCursoYNombre(idCurso, nombre);
+	}
 }

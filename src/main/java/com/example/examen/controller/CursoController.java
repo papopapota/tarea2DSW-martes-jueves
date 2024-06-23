@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -81,4 +82,14 @@ public class CursoController {
 	public List<Curso> listaCursoXNombre(@PathVariable("var") String nombre) {
 		return service.listaCursoPorNombre(nombre);
 	}
+
+	// Consultas por parametros
+	@GetMapping("/listaCursoPorDosCampos")
+	@ResponseBody
+	public List<Curso> listaCursoPorDosCampos(
+					@RequestParam("idCurso") int idCurso, 
+					@RequestParam("nombre") String nombre) {
+		return service.listaCursoPorIDCursoYNombre(idCurso, nombre);
+	}
+
 }

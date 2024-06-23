@@ -19,4 +19,6 @@ public interface CursoService {
 
 	public abstract Curso buscaCursoPorPK(int idCurso);
 	
+	public abstract List<Curso> listaCursoPorIDCursoYNombre(int idCurso, String nombre);
+	
 }
