@@ -29,4 +29,19 @@ public class CursoServiceImpl implements CursoService{
 	public List<Curso> listaCursoPorNombre(String nombre) {
 		return repository.listaCursoPorNombre(nombre);
 	}
+
+	@Override
+	public Curso agregarActualizarCurso(Curso curso) {
+		return repository.save(curso);
+	}
+
+	@Override
+	public void eliminarCurso(int id) {
+		repository.deleteById(id);
+	}
+
+	@Override
+	public Curso buscaCursoPorPK(int idCurso) {
+		return repository.findById(idCurso).orElse(null);
+	}
 }

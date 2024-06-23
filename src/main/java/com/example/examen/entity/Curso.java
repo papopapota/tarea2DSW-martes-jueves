@@ -10,8 +10,8 @@ import lombok.Setter;
 @Document(collection = "curso")
 public class Curso {
 
+	private int _id;
 	private int idCurso;
 	private String nombre;
 
-	
 }
