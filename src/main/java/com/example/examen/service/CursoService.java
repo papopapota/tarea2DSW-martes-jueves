@@ -21,4 +21,5 @@ public interface CursoService {
 	
 	public abstract List<Curso> listaCursoPorIDCursoYNombre(int idCurso, String nombre);
 	
+	
 }

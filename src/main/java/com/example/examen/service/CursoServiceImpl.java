@@ -49,4 +49,6 @@ public class CursoServiceImpl implements CursoService{
 	public List<Curso> listaCursoPorIDCursoYNombre(int idCurso, String nombre) {
 		return repository.listaCursoPorIDCursoYNombre(idCurso, nombre);
 	}
+
+
 }
