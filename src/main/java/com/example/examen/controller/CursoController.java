@@ -6,6 +6,7 @@ import java.util.Map;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,25 +65,26 @@ public class CursoController {
 		return ResponseEntity.ok(salida);
 	}
 
-	@GetMapping("/listaTodos")
+	@DeleteMapping("/eliminaCurso/{id}")
 	@ResponseBody
-	public List<Curso> lista() {
-		return service.listaCurso();
+		public ResponseEntity<Map<String, Object>> eliminaEjemplo(@PathVariable("id") int id) {
+			Map<String, Object> salida = new HashMap<>();
+			try {
+				service.eliminarCurso(id);
+				salida.put("mensaje", "Eliminación exitosa . Curso de ID ==> " + id + ".");
+			} catch (Exception e) {
+				e.printStackTrace();
+				salida.put("mensaje", "Error al eliminar");
+			}
+			return ResponseEntity.ok(salida);
 	}
-	
-	@GetMapping("/buscaCursoPorId/{id}")
-	@ResponseBody
-	public Curso buscaCursoPorId(@PathVariable("id") int idCurso) {
-		return service.buscaCursoPorId(idCurso);
-	}
-
-	//Consultas
 	@GetMapping("/listaCursoPorNombre/{var}")
 	@ResponseBody
 	public List<Curso> listaCursoXNombre(@PathVariable("var") String nombre) {
 		return service.listaCursoPorNombre(nombre);
 	}
 
+	// Consultas
 	// Consultas por parametros
 	@GetMapping("/listaCursoPorDosCampos")
 	@ResponseBody
