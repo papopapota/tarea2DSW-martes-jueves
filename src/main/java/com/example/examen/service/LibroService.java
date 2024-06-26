@@ -17,5 +17,7 @@ public interface LibroService {
     
     //Consulta usando $in 
     public abstract List<Libro> listaPorAutores(List<String> authors);
+
+    public abstract List<Libro> listaPorCategorias(List<String> categories);
      
 }

@@ -40,5 +40,10 @@ public class LibroServiceImpl implements LibroService {
         return repository.findByTitle(titulo);
     }
 
+    @Override
+    public List<Libro> listaPorCategorias(List<String> categories) {
+        return repository.findByCategories(categories);
+    }
+
     
 }

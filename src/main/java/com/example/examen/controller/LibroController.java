@@ -107,4 +107,10 @@ public class LibroController {
 	public List<Libro> lista(@RequestParam("authors") List<String> authors) {
         return service.listaPorAutores(authors);
 	}
+
+	@GetMapping("/listaLibroPorCategorias")
+	@ResponseBody
+	public List<Libro> listaPorCategorias(@RequestParam("categories") List<String> categories) {
+        return service.listaPorCategorias(categories);
+	}
 }

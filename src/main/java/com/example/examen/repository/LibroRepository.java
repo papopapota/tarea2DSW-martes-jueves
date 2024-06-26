@@ -16,4 +16,7 @@ public interface LibroRepository extends MongoRepository<Libro, ObjectId> {
 
     public abstract List<Libro> findByTitle(String title);
     
+    @Query("{ 'categories' : { $in: ?0 } }")
+    public abstract List<Libro> findByCategories(List<String> titles);
+    
 }
